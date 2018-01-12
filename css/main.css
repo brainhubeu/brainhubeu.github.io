@@ -5,19 +5,21 @@
   font-style: normal; }
 
 @font-face {
-  font-family: "HKGrotesk";
-  src: url("../assets/fonts/hkgrotesk-light.woff2") format("woff2"), url("../assets/fonts/hkgrotesk-light.woff") format("woff"), url("../assets/fonts/hkgrotesk-light.ttf") format("truetype");
+  font-family: HKGrotesk;
+  src: url("assets/fonts/hkgrotesk-light.woff2") format("woff2"), url("assets/fonts/hkgrotesk-light.woff") format("woff"), url("assets/fonts/hkgrotesk-light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal; }
 
 @font-face {
-  font-family: "HKGrotesk";
-  src: url("../assets/fonts/hkgrotesk-regular.woff2") format("woff2"), url("../assets/fonts/hkgrotesk-regular.woff") format("woff"), url("../assets/fonts/hkgrotesk-regular.ttf") format("truetype");
+  font-family: HKGrotesk;
+  src: url("assets/fonts/hkgrotesk-regular.woff2") format("woff2"), url("assets/fonts/hkgrotesk-regular.woff") format("woff"), url("assets/fonts/hkgrotesk-regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
 body {
-  font-family: "HKGrotesk"; }
+  margin: 0;
+  padding: 0;
+  font-family: HKGrotesk; }
 
 html {
   font-size: 16px; }

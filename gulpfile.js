@@ -7,7 +7,6 @@ const browserify = require('gulp-browserify');
 const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
 const eslint = require('gulp-eslint');
-const tinypng = require('gulp-tinypng-compress');
 
 
 gulp.task('assets', function() {
@@ -16,11 +15,6 @@ gulp.task('assets', function() {
 
 gulp.task('tinypng', function () {
   gulp.src('./tools/assets/img/**/*.{png,jpg,jpeg}')
-    .pipe(tinypng({
-      key: 'APIKEY',
-      sigFile: './tools/assets/img/.tinypng-sigs',
-      log: true,
-    }))
     .pipe(gulp.dest('./tools/assets/img/'));
 });
 
