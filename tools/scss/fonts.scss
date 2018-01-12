@@ -1,8 +1,8 @@
 @font-face {
-    font-family: HKGrotesk;
-    src: url('assets/fonts/hkgrotesk-bold.woff2') format('woff2'),
-         url('assets/fonts/hkgrotesk-bold.woff') format('woff'),
-         url('assets/fonts/hkgrotesk-bold.ttf') format('truetype');
+    font-family: "HKGrotesk";
+    src: url('../assets/fonts/hkgrotesk-bold.woff2') format('woff2'),
+         url('../assets/fonts/hkgrotesk-bold.woff') format('woff'),
+         url('../assets/fonts/hkgrotesk-bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }

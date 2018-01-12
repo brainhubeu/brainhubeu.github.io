@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+}
+
+a {
+    &:link {
+        text-decoration: none;
+    }
+}
+
+button {
+    outline: 0;
+    cursor: pointer;
+    font-family: $mainFont;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1110px;
+
+    @media (max-width: $bigScreen) {
+        width: 900px;
+    }
+
+    @media (max-width: $mediumScreen) {
+        width: 640px;
+    }
+
+    @media (max-width: $smallScreen) {
+        width: 100%;
+    }
+}
