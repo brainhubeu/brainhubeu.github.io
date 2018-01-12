@@ -79,6 +79,9 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
+  @media (max-width: 768px) {
+    .menu {
+      margin-top: 1rem; } }
 
 .logo__container {
   display: -webkit-box;
@@ -91,19 +94,23 @@ button {
 .logo__txt {
   color: rgba(255, 255, 255, 0.35);
   padding-left: 1.1rem;
-  font-size: 0.9rem;
-  font-weight: 500; }
+  font-size: 0.9rem; }
+  @media (max-width: 768px) {
+    .logo__txt {
+      display: none; } }
 
 .menu__contact-btn {
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
   font-size: 0.9rem;
-  font-weight: 500;
   line-height: 1rem;
   padding: 0.75rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   transition: 1s; }
+  @media (max-width: 768px) {
+    .menu__contact-btn {
+      display: none; } }
   .menu__contact-btn:hover {
     background-color: #7b59ff;
     color: #fff; }
@@ -122,7 +129,15 @@ button {
     font-size: 3rem;
     color: #fff;
     letter-spacing: 1px; }
+    @media (max-width: 992px) {
+      .top-banner__header-line h1 {
+        font-size: 2.5rem; } }
+    @media (max-width: 768px) {
+      .top-banner__header-line h1 {
+        font-size: 1.9rem; } }
   .top-banner__header-line .top-banner__arrow {
     background-color: transparent;
-    border: none;
-    cursor: pointer; }
+    border: none; }
+    @media (max-width: 768px) {
+      .top-banner__header-line .top-banner__arrow {
+        display: none; } }

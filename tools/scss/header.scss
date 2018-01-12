@@ -18,6 +18,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+    @media (max-width: $smallScreen) {
+        margin-top: 1rem;
+    }
 }
 
 .logo__container {
@@ -29,19 +33,25 @@
     color: rgba(255,255,255,0.35);
     padding-left: 1.1rem;
     font-size: 0.9rem;
-    font-weight: 500;
+    
+    @media (max-width: $smallScreen) {
+        display: none;
+    }
 }
 
 .menu__contact-btn {
     border: 1px solid rgba(255,255,255,0.2);
     color: $white;
     font-size: 0.9rem;
-    font-weight: 500;
     line-height: 1rem;
     padding: 0.75rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     transition: 1s;
+    
+    @media (max-width: $smallScreen) {
+        display: none;
+    }
 
     &:hover {
         background-color: $colorBHMain;
@@ -58,11 +68,22 @@
         font-size: 3rem;
         color: $white;
         letter-spacing: 1px;
+    
+        @media (max-width: $mediumScreen) {
+            font-size: 2.5rem;
+        }
+    
+        @media (max-width: $smallScreen) {
+            font-size: 1.9rem;
+        }
     }
 
     .top-banner__arrow {
         background-color: transparent;
         border: none;
-        cursor: pointer;
+    
+        @media (max-width: $smallScreen) {
+            display: none;
+        }
     }
 }
