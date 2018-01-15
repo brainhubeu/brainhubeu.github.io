@@ -1,0 +1,43 @@
+.js_slider {position: relative}
+
+.frame {
+    position: relative;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.slides {
+    display: inline-block;
+}
+
+li {
+    position: relative;
+    display: inline-block;
+    
+    img {
+        width: 250px;
+        height: auto;
+    }
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    margin-top: -25px;
+    display: block;
+    cursor: pointer;
+}
+
+.next {
+    right: 0;
+}
+
+.prev {
+    left: 0;
+}
+
+.next svg, .prev svg {
+    width: 25px;
+}
