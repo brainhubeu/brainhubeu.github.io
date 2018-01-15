@@ -86,10 +86,19 @@
 .footer-links__container {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: $smallScreen) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 .footer-links__left-container {
     display: flex;
+
+    @media (max-width: $extraSmallScreen) {
+        flex-wrap: wrap;
+    }
 }
 
 .footer-links__header {
@@ -103,6 +112,19 @@
 
 .footer-links__list-container {
     padding: 2rem 8rem 2rem 2rem;
+
+    @media (max-width: $mediumScreen) {
+        padding-right: 0;
+    }
+    
+    @media (max-width: $smallScreen) {
+        padding-right: 2rem;
+        text-align: center;
+    }
+
+    @media (max-width: $extraSmallScreen) {
+        width: 100%;
+    }
 }
 
 .footer-links__list {
@@ -131,6 +153,12 @@
 .footer-links__right-container {
     position: relative;
     padding-right: 3rem;
+    text-align: right;
+
+    @media (max-width: $smallScreen) {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .footer-links__socials {
@@ -142,12 +170,27 @@
     position: relative;
     right: -1rem;
 
+    @media (max-width: $smallScreen) {
+        justify-content: center;
+        right: 0;
+    }
+
     a {
         width: 3rem;
         height: 3rem;
         display: flex;
         align-items: center;
         justify-content: center;
+
+        &:hover {
+            path {
+                fill: $colorBHMain;
+            }
+        }
+    }
+
+    path {
+        transition: 1s;
     }
 }
 
@@ -160,18 +203,22 @@
     opacity: 0.1;
     border: none;
     width: 50vw;
+
+    @media (max-width: $smallScreen) {
+        width: 100%;
+        left: 0;
+    }
 }
 
 .footer-links__address {
-    text-align: right;
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: $colorBHBg;
-    opacity: 0.2;
-    font-style: normal;
-
-    span {
+    span, a {
         display: block;
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: $colorBHBg;
+        opacity: 0.2;
+        font-style: normal;
+        white-space: nowrap;
     }
 
     p {
@@ -183,14 +230,22 @@
             margin-bottom: 0;
         }
     }
+
+    .address__mail {
+        transition: 1s;
+        &:hover {
+            color: $colorBHMain;
+            opacity: 0.5;
+        }
+    }
 }
 
 .footer-links__copyrights {
-    text-align: right;
     font-weight: bold;
     color:  $colorBHBg;
     opacity: 0.2;
     font-size: 0.7rem;
     padding-top: 1rem;
     margin: 0;
+    white-space: nowrap;
 }
