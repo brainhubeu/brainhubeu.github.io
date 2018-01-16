@@ -1,0 +1,49 @@
+.intro__container {
+    padding-top: 4rem;
+    text-align: center;
+}
+
+.intro__header {
+    color: $colorBHBg;
+    font-weight: bold;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    line-height: 3rem;
+    margin: 0;
+}
+
+.separator {
+    display: inline-flex;
+    margin: 2.5rem 0;
+
+    > * {
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
+    }
+}
+
+.separator__purple-line {
+    border-bottom-color: #7b59ff;
+    width: 1.375rem;
+    margin-right: 0.375rem;
+}
+
+.separator__pink-line {
+    border-bottom-color: #f777d6;
+    width: 0.625rem;
+    margin-right: 1.125rem;
+}
+
+.separator__blue-line {
+    border-bottom-color: #55d7ff;
+    width: 2.375rem;
+    height: 2px;
+}
+.intro__txt {
+    width: 60%;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+    color: #150940;
+    opacity: 0.7;
+    line-height: 1.75rem;
+}
