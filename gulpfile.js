@@ -18,6 +18,13 @@ gulp.task('tinypng', function () {
     .pipe(gulp.dest('./tools/assets/img/'));
 });
 
+gulp.task('scriptsLibs', function() {
+  gulp
+    .src('tools/js/libs/*.js')
+    .pipe(gulp.dest('./js/libs'));
+});
+
+
 gulp.task('scripts', function() {
   gulp
     .src('tools/js/app.js')
@@ -53,7 +60,7 @@ gulp.task('html', function() {
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('serve', ['sass', 'html', 'scripts', 'assets'], function() {
+gulp.task('serve', ['sass', 'html', 'scripts', 'scriptsLibs', 'assets'], function() {
   browserSync.init({
     server: './',
   });
@@ -61,6 +68,7 @@ gulp.task('serve', ['sass', 'html', 'scripts', 'assets'], function() {
   gulp.watch('tools/content/*.html', ['html']);
   gulp.watch('tools/partials/*.html', ['html']);
   gulp.watch('tools/js/*.js', ['scripts']);
+  gulp.watch('tools/js/libs/*.js', ['scriptsLibs']);
   gulp.watch('tools/assets/**/*', ['assets']);
   gulp.watch('*.html').on('change', browserSync.reload);
   gulp.watch('js/*.js').on('change', browserSync.reload);
