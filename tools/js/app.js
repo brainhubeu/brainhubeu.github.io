@@ -91,9 +91,6 @@ window.onload = function() {
     let itemsInOneLine = 2;
 
     window.innerWidth <= rwdBreakpoint ? itemsInOneLine = 1 : false;
-
-    console.log(itemsInOneLine);
-
   
     //layout generation
     itemsContainer[0].style.height = `${(itemHeight + 2*margin) * Math.round(fiteredItemsLength / itemsInOneLine)}px`;
