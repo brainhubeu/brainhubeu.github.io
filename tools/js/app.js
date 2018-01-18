@@ -2,6 +2,8 @@ window.onload = function() {
   filter();
   const tabNavButtons = document.querySelectorAll('.tabs-nav__button');
 
+
+  // click button in menu
   tabNavButtons.forEach(link => {
     link.addEventListener('click', function() {
       // toggle class in tab nav buttons
@@ -10,34 +12,44 @@ window.onload = function() {
           el.classList.remove('active')
         });
         this.classList.add('active');
-
         filter(this.dataset.category);
-        console.log(this.dataset.category);
       } else {
         return false;
       }
     });
   });
 
+  // resize window
+  window.onresize = function() {
+    const activeCategory = document.querySelector('.tabs-nav__button.active').dataset.category;
+    filter( activeCategory ? '' : activeCategory);
+  };
+
   function filter(category) {
     category = category || 'all';
-    const allItems = [...document.querySelectorAll('.tabs__content li')];
-    const notFilteredItems = category !== 'all' ? allItems.filter(item => item.dataset.category !== category) : [];
     const itemsContainer = document.querySelectorAll('.tabs__content');
+    const allItems = [...document.querySelectorAll('.tabs__content li')];
     const firstVisibleItem = allItems.find(element => !element.hidden);
     const itemHeight = firstVisibleItem.clientHeight;
     const itemWidth = firstVisibleItem.clientWidth;
-    const margin = 16;  // equal 1rem
     const fiteredItems = allItems.filter(item => category === 'all' || item.dataset.category === category);
     const fiteredItemsLength = fiteredItems.length;
+    const notFilteredItems = category !== 'all' ? allItems.filter(item => item.dataset.category !== category) : [];
+    const margin = 16;  // equal 1rem
+    const rwdBreakpoint = 768;
+    let itemsInOneLine = 2;
+
+    window.innerWidth <= rwdBreakpoint ? itemsInOneLine = 1 : false;
+
+    console.log(itemsInOneLine);
 
   
     //layout generation
-    itemsContainer[0].style.height = `${(itemHeight + 2*margin) * Math.round(fiteredItemsLength / 2)}px`;
+    itemsContainer[0].style.height = `${(itemHeight + 2*margin) * Math.round(fiteredItemsLength / itemsInOneLine)}px`;
   
     fiteredItems.forEach((element, key) => {
-      const left = key % 2 ? `${itemWidth + 2 * margin}px` : 0;
-      const top = `${Math.floor(key / 2) * (itemHeight + 2 * margin)}px`;
+      const left = !(key % itemsInOneLine) ? 0 : `${itemWidth + 2 * margin}px`;
+      const top = `${Math.floor(key / itemsInOneLine) * (itemHeight + 2 * margin)}px`;
 
       element.style.cssText = `
         display: block;
