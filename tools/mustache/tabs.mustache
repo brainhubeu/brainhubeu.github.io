@@ -1,0 +1,10 @@
+<ul class='tabs__content container'>
+    {{#tabsContent}}
+        <li class='tabs-content__item' data-category={{category}}>
+            <a href={{& href}}>
+                <h3 class='tabs-content__header'>{{name}}</h3>
+                <p>{{desc}}</p>
+            </a>
+        </li>
+    {{/tabsContent}}
+</ul>

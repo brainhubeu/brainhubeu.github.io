@@ -7,7 +7,8 @@ const browserify = require('gulp-browserify');
 const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
 const eslint = require('gulp-eslint');
-
+const mustache = require('gulp-mustache');
+const data = require('./tools/js/data').data;
 
 gulp.task('assets', function() {
   return gulp.src('./tools/assets/**/*').pipe(gulp.dest('./assets/'));
@@ -43,6 +44,13 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./js'));
 });
 
+gulp.task('mustache', function() {
+  gulp
+    .src('tools/mustache/index.mustache')
+    .pipe(mustache(data, { extension: '.html' }))
+    .pipe(gulp.dest('./'))
+});
+
 gulp.task('sass', function() {
   return gulp
     .src('./tools/scss/main.scss')
@@ -60,13 +68,12 @@ gulp.task('html', function() {
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('serve', ['sass', 'html', 'scripts', 'scriptsLibs', 'assets'], function() {
+gulp.task('serve', ['sass', 'mustache', 'scripts', 'scriptsLibs', 'assets'], function() {
   browserSync.init({
     server: './',
   });
   gulp.watch('tools/scss/**/*', ['sass']);
-  gulp.watch('tools/content/*.html', ['html']);
-  gulp.watch('tools/partials/*.html', ['html']);
+  gulp.watch('tools/mustache/*.mustache', ['mustache']);
   gulp.watch('tools/js/*.js', ['scripts']);
   gulp.watch('tools/js/libs/*.js', ['scriptsLibs']);
   gulp.watch('tools/assets/**/*', ['assets']);
