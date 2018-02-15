@@ -7,59 +7,59 @@ const data = {
   slider: [
     {
       src: 'assets/img/carousel/carousel-image-2.jpg',
-      alt: '',
+      alt: 'carousel-image-2',
     },
     {
       src: 'assets/img/carousel/carousel-image-3.jpg',
-      alt: '',
+      alt: 'carousel-image-3',
     },
     {
       src: 'assets/img/carousel/carousel-image-4.jpg',
-      alt: '',
+      alt: 'carousel-image-4',
     },
     {
       src: 'assets/img/carousel/carousel-image-5.jpg',
-      alt: '',
+      alt: 'carousel-image-5',
     },
     {
       src: 'assets/img/carousel/carousel-image-6.jpg',
-      alt: '',
+      alt: 'carousel-image-6',
     },
     {
       src: 'assets/img/carousel/carousel-image-7.jpg',
-      alt: '',
+      alt: 'carousel-image-7',
     },
     {
       src: 'assets/img/carousel/carousel-image-9.jpg',
-      alt: '',
+      alt: 'carousel-image-9',
     },
     {
       src: 'assets/img/carousel/carousel-image-2.jpg',
-      alt: '',
+      alt: 'carousel-image-2',
     },
     {
       src: 'assets/img/carousel/carousel-image-3.jpg',
-      alt: '',
+      alt: 'carousel-image-3',
     },
     {
       src: 'assets/img/carousel/carousel-image-4.jpg',
-      alt: '',
+      alt: 'carousel-image-4',
     },
     {
       src: 'assets/img/carousel/carousel-image-5.jpg',
-      alt: '',
+      alt: 'carousel-image-5',
     },
     {
       src: 'assets/img/carousel/carousel-image-6.jpg',
-      alt: '',
+      alt: 'carousel-image-6',
     },
     {
       src: 'assets/img/carousel/carousel-image-7.jpg',
-      alt: '',
+      alt: 'carousel-image-7',
     },
     {
       src: 'assets/img/carousel/carousel-image-9.jpg',
-      alt: '',
+      alt: 'carousel-image-9',
     },
   ],
   company: [
