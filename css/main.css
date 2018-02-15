@@ -56,7 +56,7 @@ button {
   display: -ms-flexbox;
   display: flex;
   padding: 2rem;
-  background: url("/assets/img/header-bg.jpg") no-repeat center center fixed;
+  background: url("../assets/img/header-bg.jpg") no-repeat center center fixed;
   background-size: cover;
   position: relative; }
 
