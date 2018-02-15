@@ -7,59 +7,59 @@ const data = {
   slider: [
     {
       src: 'assets/img/carousel/carousel-image-2.jpg',
-      alt: 'carousel-image-2',
+      alt: 'brainhub hackhaton',
     },
     {
       src: 'assets/img/carousel/carousel-image-3.jpg',
-      alt: 'carousel-image-3',
+      alt: 'donuts for fat thursday',
     },
     {
       src: 'assets/img/carousel/carousel-image-4.jpg',
-      alt: 'carousel-image-4',
+      alt: 'brainhub learning tdd',
     },
     {
       src: 'assets/img/carousel/carousel-image-5.jpg',
-      alt: 'carousel-image-5',
+      alt: 'brainhub office, redbull',
     },
     {
       src: 'assets/img/carousel/carousel-image-6.jpg',
-      alt: 'carousel-image-6',
+      alt: 'meeting customers in Zurich',
     },
     {
       src: 'assets/img/carousel/carousel-image-7.jpg',
-      alt: 'carousel-image-7',
+      alt: 'brainhub hackathon - planning',
     },
     {
       src: 'assets/img/carousel/carousel-image-9.jpg',
-      alt: 'carousel-image-9',
+      alt: 'brainhub t-shirt',
     },
     {
       src: 'assets/img/carousel/carousel-image-2.jpg',
-      alt: 'carousel-image-2',
+      alt: 'brainhub hackhaton',
     },
     {
       src: 'assets/img/carousel/carousel-image-3.jpg',
-      alt: 'carousel-image-3',
+      alt: 'donuts for fat thursday',
     },
     {
       src: 'assets/img/carousel/carousel-image-4.jpg',
-      alt: 'carousel-image-4',
+      alt: 'brainhub learning tdd',
     },
     {
       src: 'assets/img/carousel/carousel-image-5.jpg',
-      alt: 'carousel-image-5',
+      alt: 'brainhub office, redbull',
     },
     {
       src: 'assets/img/carousel/carousel-image-6.jpg',
-      alt: 'carousel-image-6',
+      alt: 'meeting customers in Zurich',
     },
     {
       src: 'assets/img/carousel/carousel-image-7.jpg',
-      alt: 'carousel-image-7',
+      alt: 'brainhub hackathon - planning',
     },
     {
       src: 'assets/img/carousel/carousel-image-9.jpg',
-      alt: 'carousel-image-9',
+      alt: 'brainhub t-shirt',
     },
   ],
   company: [
