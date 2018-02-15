@@ -20,7 +20,7 @@ describe('jsonML parser', () => {
   });
 
   it('should return empty intial state when run on empty array', () => {
-    expect(parseJsonML([])).toEqual({ external: [], internal: [] });
+    expect(parseJsonML([])).toEqual([]);
   });
 
   it('should correctly find external and internal projects from links', () => {
@@ -86,12 +86,19 @@ describe('jsonML parser', () => {
       ],
     ];
 
-    expect(parseJsonML(jsonML)).toEqual({
-      external: [
-        'https://github.com/Lukasz-pluszczewski/mi18n',
-        'https://github.com/Lukasz-pluszczewski/redux-better-promise'
-      ],
-      internal: ['https://github.com/brainhubeu/react-permissible'],
-    });
+    expect(parseJsonML(jsonML)).toEqual([
+      { category: 'teammates',
+        href: 'https://github.com/Lukasz-pluszczewski/redux-better-promise',
+        name: 'redux-better-promise',
+        desc: 'Simple and powerful redux middleware that supports async side-effects' },
+      { category: 'teammates',
+        href: 'https://github.com/Lukasz-pluszczewski/mi18n',
+        name: 'mi18n',
+        desc: 'MINTernationalization - i18n made easy' },
+      { category: 'bh',
+        href: 'https://github.com/brainhubeu/react-permissible',
+        name: 'react-permissible',
+        desc: 'Making the permission management for React components easier.' }
+    ]);
   });
 });
