@@ -8,7 +8,7 @@ const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
 const eslint = require('gulp-eslint');
 const mustache = require('gulp-mustache');
-const data = require('./tools/js/data').data;
+const { data } = require('./tools/js/data');
 
 gulp.task('assets', function() {
   return gulp.src('./tools/assets/**/*').pipe(gulp.dest('./assets/'));
