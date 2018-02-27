@@ -60,7 +60,7 @@ window.onload = function() {
       // toggle class in tab nav buttons
       if (!this.classList.contains('active')) {
         tabNavButtons.forEach(function(el) {
-          el.classList.remove('active')
+          el.classList.remove('active');
         });
         this.classList.add('active');
         filter(this.dataset.category);
@@ -116,12 +116,14 @@ window.onload = function() {
     itemsContainer[0].style.height = `${(itemHeight + 2*margin) * Math.round(filteredItemsLength / itemsInOneLine)}px`;
 
     filteredItems.forEach((element, key) => {
+      const top = `${Math.floor(key / itemsInOneLine) * (itemHeight + 2 * margin)}px`;
       const left = !(key % itemsInOneLine) ? 0 : `${itemWidth + 2 * margin}px`;
 
       element.style.cssText = `
         display: block;
         position: absolute;
         left: ${left};
+        top: ${top};
       `;
 
       element.hidden = false;
