@@ -51,7 +51,7 @@ $(document).ready(function() {
   });
 });
 
-const setStylesForMultiColumn = (itemsContainer, visibleItems, margin, itemsInOneLine) => {
+const setStylesForItems = (itemsContainer, visibleItems, margin, itemsInOneLine) => {
   let maxHeight = 0;
   let top = 0;
   let containerHeight = 0;
@@ -76,24 +76,6 @@ const setStylesForMultiColumn = (itemsContainer, visibleItems, margin, itemsInOn
   itemsContainer.style.height = `${top + maxHeight + margin}px`;
 };
 
-const setStylesForSingleColumn = (itemsContainer, visibleItems, margin) => {
-  let containerHeight = 0;
-
-  visibleItems.forEach((item, index) => {
-    const top = containerHeight + index * 2 * margin;
-    containerHeight += item.clientHeight;
-
-    itemsContainer.style.height = `${(top + item.clientHeight + margin)}px`;
-
-    item.style.cssText = `
-      display: block;
-      position: absolute;
-      left: 0;
-      top: ${top}px;
-    `;
-  });
-};
-
 const filter = category => {
   const allItems = [...document.querySelectorAll('.tabs__content li')];
   const itemsContainer = document.querySelectorAll('.tabs__content')[0];
@@ -107,9 +89,7 @@ const filter = category => {
 
   hiddenItems.forEach(element => element.style.cssText = 'display: none');
 
-  itemsInOneLine !== 1
-    ? setStylesForMultiColumn(itemsContainer, visibleItems, margin, itemsInOneLine)
-    : setStylesForSingleColumn(itemsContainer, visibleItems, margin);
+  setStylesForItems(itemsContainer, visibleItems, margin, itemsInOneLine);
 };
 
 window.onload = function() {
