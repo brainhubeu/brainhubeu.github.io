@@ -51,12 +51,16 @@ $(document).ready(function() {
   });
 });
 
-const setStylesForItems = (itemsContainer, visibleItems, margin, itemsInOneLine) => {
+const setStylesForItems = (visibleItems, margin, itemsInOneLine) => {
   let maxHeight = 0;
   let top = 0;
   let containerHeight = 0;
 
   visibleItems.forEach((item, index) => {
+    item.style.cssText = `
+       display: block;
+    `;
+
     const left = !(index % itemsInOneLine) ? 0 : `${item.clientWidth + 2 * margin}px`;
     if (!(index % itemsInOneLine)) {
       const nextItemHeight = visibleItems[index + 1] ? visibleItems[index + 1].clientHeight : 0;
@@ -64,8 +68,8 @@ const setStylesForItems = (itemsContainer, visibleItems, margin, itemsInOneLine)
       top = containerHeight + Math.floor(index / itemsInOneLine) * 2 * margin;
       containerHeight += maxHeight;
     }
+
     item.style.cssText = `
-      display: block;
       position: absolute;
       height: ${maxHeight}px;
       left: ${left};
@@ -73,12 +77,11 @@ const setStylesForItems = (itemsContainer, visibleItems, margin, itemsInOneLine)
     `;
   });
 
-  itemsContainer.style.height = `${top + maxHeight + margin}px`;
+  document.querySelectorAll('.tabs__content')[0].style.height = `${top + maxHeight + margin}px`;
 };
 
 const filter = category => {
   const allItems = [...document.querySelectorAll('.tabs__content li')];
-  const itemsContainer = document.querySelectorAll('.tabs__content')[0];
 
   const visibleItems = allItems.filter(item => category === 'all' || item.dataset.category === category);
   const hiddenItems = category !== 'all' ? allItems.filter(item => item.dataset.category !== category) : [];
@@ -89,7 +92,7 @@ const filter = category => {
 
   hiddenItems.forEach(element => element.style.cssText = 'display: none');
 
-  setStylesForItems(itemsContainer, visibleItems, margin, itemsInOneLine);
+  setStylesForItems(visibleItems, margin, itemsInOneLine);
 };
 
 window.onload = function() {
