@@ -51,39 +51,52 @@ $(document).ready(function() {
   });
 });
 
-const setStyleForMultiColumn = visibleItems => {
+const setStylesForMultiColumn = (itemsContainer, visibleItems, margin, itemsInOneLine) => {
   let maxHeight = 0;
   let top = 0;
   let containerHeight = 0;
-  const margin = 16;
 
   visibleItems.forEach((item, index) => {
-    const left = !(index % 2) ? 0 : `${item.clientWidth + 2 * margin}px`;
-    if (!(index % 2)) {
+    const left = !(index % itemsInOneLine) ? 0 : `${item.clientWidth + 2 * margin}px`;
+    if (!(index % itemsInOneLine)) {
       const nextItemHeight = visibleItems[index + 1] ? visibleItems[index + 1].clientHeight : 0;
       maxHeight = Math.max(item.clientHeight, nextItemHeight);
-      top = containerHeight + Math.floor(index / 2) * 2 * margin;
+      top = containerHeight + Math.floor(index / itemsInOneLine) * 2 * margin;
       containerHeight += maxHeight;
     }
     item.style.cssText = `
       display: block;
       position: absolute;
-      left: ${left};
       height: ${maxHeight}px;
+      left: ${left};
       top: ${top}px;
     `;
   });
 
-  document.querySelectorAll('.tabs__content')[0].style.height = `${top + maxHeight + margin}px`;
+  itemsContainer.style.height = `${top + maxHeight + margin}px`;
+};
+
+const setStylesForSingleColumn = (itemsContainer, visibleItems, margin) => {
+  let containerHeight = 0;
+
+  visibleItems.forEach((item, index) => {
+    const top = containerHeight + index * 2 * margin;
+    containerHeight += item.clientHeight;
+
+    itemsContainer.style.height = `${(top + item.clientHeight + margin)}px`;
+
+    item.style.cssText = `
+      display: block;
+      position: absolute;
+      left: 0;
+      top: ${top}px;
+    `;
+  });
 };
 
 const filter = category => {
-  const itemsContainer = document.querySelectorAll('.tabs__content');
   const allItems = [...document.querySelectorAll('.tabs__content li')];
-
-  const firstVisibleItem = allItems.find(element => element.style.display !== 'none');
-  const itemHeight = firstVisibleItem.clientHeight;
-  const itemWidth = firstVisibleItem.clientWidth;
+  const itemsContainer = document.querySelectorAll('.tabs__content')[0];
 
   const visibleItems = allItems.filter(item => category === 'all' || item.dataset.category === category);
   const hiddenItems = category !== 'all' ? allItems.filter(item => item.dataset.category !== category) : [];
@@ -92,24 +105,11 @@ const filter = category => {
   const rwdBreakpoint = 768;
   const itemsInOneLine = window.innerWidth <= rwdBreakpoint ? 1 : 2;
 
-  // layout generation
-  itemsContainer[0].style.height = `${(itemHeight + 2*margin) * Math.round(visibleItems.length / itemsInOneLine)}px`;
-
   hiddenItems.forEach(element => element.style.cssText = 'display: none');
 
-  itemsInOneLine === 2
-    ? setStyleForMultiColumn(allItems.filter(item => category === 'all' || item.dataset.category === category))
-    : visibleItems.forEach((element, key) => {
-      const top = `${Math.floor(key / itemsInOneLine) * (itemHeight + 2 * margin)}px`;
-      const left = !(key % itemsInOneLine) ? 0 : `${itemWidth + 2 * margin}px`;
-
-      element.style.cssText = `
-      display: block;
-      position: absolute;
-      left: ${left};
-      top: ${top};
-    `;
-    });
+  itemsInOneLine !== 1
+    ? setStylesForMultiColumn(itemsContainer, visibleItems, margin, itemsInOneLine)
+    : setStylesForSingleColumn(itemsContainer, visibleItems, margin);
 };
 
 window.onload = function() {
