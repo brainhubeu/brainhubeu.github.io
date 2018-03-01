@@ -1,89 +1,94 @@
 .top-banner {
-    min-height: 45vh;
-    display: flex;
-    padding: 2rem;
-    background: url('../assets/img/header-bg.jpg') no-repeat center center fixed;
-    background-size: cover;
-    position: relative;
+  min-height: 45vh;
+  display: flex;
+  padding: 2rem;
+  background: url('../assets/img/header-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
 }
 
 .top-banner__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .menu {
-    margin-top: 1.6rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    @media (max-width: $smallScreen) {
-        margin-top: 1rem;
-    }
+  margin-top: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: $smallScreen) {
+    margin-top: 1rem;
+  }
 }
 
 .logo__container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo__txt {
-    color: rgba(255,255,255,0.35);
-    padding-left: 1.1rem;
-    font-size: 0.9rem;
-    
-    @media (max-width: $smallScreen) {
-        display: none;
-    }
+  color: rgba(255,255,255,0.35);
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+
+  @media (max-width: $smallScreen) {
+    display: none;
+  }
 }
 
 .menu__contact-btn {
-    border: 1px solid rgba(255,255,255,0.2);
-    color: $white;
-    font-size: 0.9rem;
-    line-height: 1rem;
-    padding: 0.75rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    transition: 1s;
-    
-    @media (max-width: $smallScreen) {
-        display: none;
-    }
+  border: 1px solid rgba(255,255,255,0.2);
+  color: $white;
+  font-size: 0.9rem;
+  line-height: 1rem;
+  padding: 0.75rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  transition: 1s;
 
-    &:hover {
-        background-color: $colorBHMain;
-        color: $white;
-    }
+  @media (max-width: $smallScreen) {
+    display: none;
+  }
+
+  &:hover {
+    background-color: $colorBHMain;
+    color: $white;
+  }
 }
 
 .top-banner__header-line {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    h1 {
-        font-size: 3rem;
-        color: $white;
-        letter-spacing: 1px;
-    
-        @media (max-width: $mediumScreen) {
-            font-size: 2.5rem;
-        }
-    
-        @media (max-width: $smallScreen) {
-            font-size: 1.9rem;
-        }
+  h1 {
+    font-size: 3rem;
+    color: $white;
+    letter-spacing: 1px;
+
+    @media (max-width: $mediumScreen) {
+      font-size: 2.5rem;
     }
 
-    .top-banner__arrow {
-        background-color: transparent;
-        border: none;
-    
-        @media (max-width: $smallScreen) {
-            display: none;
-        }
+    @media (max-width: $smallScreen) {
+      font-size: 1.9rem;
     }
+  }
+
+  .top-banner__arrow {
+    background-color: transparent;
+    border: none;
+    transition: 0.66s ease-in-out;
+
+    &:hover {
+      transform: translateY(1rem);
+    }
+
+    @media (max-width: $smallScreen) {
+      display: none;
+    }
+  }
 }
