@@ -99,6 +99,17 @@ window.onload = function() {
   filter('all');
   const tabNavButtons = document.querySelectorAll('.tabs-nav__button');
 
+  const arrow = document.querySelector('.top-banner__arrow');
+  const nextSection = document.querySelector('.intro__container');
+
+  arrow.addEventListener('click', () => {
+    window.scrollBy({
+      top: nextSection.getBoundingClientRect().top + 1,
+      left: 0,
+      behavior: 'smooth',
+    })
+  });
+
   // click button in menu
   tabNavButtons.forEach(link => {
     link.addEventListener('click', function() {

@@ -128,7 +128,10 @@ button {
         font-size: 1.9rem; } }
   .top-banner__header-line .top-banner__arrow {
     background-color: transparent;
-    border: none; }
+    border: none;
+    transition: 0.66s ease-in-out; }
+    .top-banner__header-line .top-banner__arrow:hover {
+      transform: translateY(1rem); }
     @media (max-width: 768px) {
       .top-banner__header-line .top-banner__arrow {
         display: none; } }
