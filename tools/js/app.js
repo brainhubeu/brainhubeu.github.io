@@ -1,58 +1,103 @@
-$(document).ready(function(){
+const debounce = require('lodash.debounce');
+
+$(document).ready(function() {
 
   const screenSizes = {
-      veryLargeScreen: '1600',
-      largeScreen: '1440',
-      bigScreen: '1280',
-      mediumScreen: '992',
-      smallScreen: '768',
-      extraSmallScreen: '460',
-      xXSmallScreen: '360',
+    veryLargeScreen: '1600',
+    largeScreen: '1440',
+    bigScreen: '1280',
+    mediumScreen: '992',
+    smallScreen: '768',
+    extraSmallScreen: '460',
+    xXSmallScreen: '360',
   };
 
   $('.slider').slick({
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 7,
-      slidesToScroll: 1,
-      centerMode: true,
-      arrows: false,
-      responsive: [
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 7,
+    slidesToScroll: 1,
+    centerMode: true,
+    arrows: false,
+    responsive: [
       {
-          breakpoint: screenSizes.extraSmallScreen,
-          settings: {
+        breakpoint: screenSizes.extraSmallScreen,
+        settings: {
           slidesToShow: 2,
-          },
+        },
       },
       {
-          breakpoint: screenSizes.smallScreen,
-          settings: {
+        breakpoint: screenSizes.smallScreen,
+        settings: {
           slidesToShow: 3,
-          },
+        },
       },
       {
-          breakpoint: screenSizes.mediumScreen,
-          settings: {
+        breakpoint: screenSizes.mediumScreen,
+        settings: {
           slidesToShow: 4,
-          },
+        },
       },
       {
-          breakpoint: screenSizes.bigScreen,
-          settings: {
+        breakpoint: screenSizes.bigScreen,
+        settings: {
           slidesToShow: 5,
-          },
+        },
       },
-      ],
-      autoplay: true,
-      autoplaySpeed: 3000,
+    ],
+    autoplay: true,
+    autoplaySpeed: 3000,
   });
 });
 
-window.onload = function() {
-  filter();
-  const tabNavButtons = document.querySelectorAll('.tabs-nav__button');
+const setStylesForItems = (visibleItems, margin, itemsInOneLine) => {
+  let maxHeight = 0;
+  let top = 0;
+  let containerHeight = 0;
 
+  visibleItems.forEach((item, index) => {
+    item.style.cssText = `
+       display: block;
+    `;
+
+    const left = !(index % itemsInOneLine) ? 0 : `${item.clientWidth + 2 * margin}px`;
+    if (!(index % itemsInOneLine)) {
+      const nextItemHeight = visibleItems[index + 1] ? visibleItems[index + 1].clientHeight : 0;
+      maxHeight = Math.max(item.clientHeight, nextItemHeight);
+      top = containerHeight + Math.floor(index / itemsInOneLine) * 2 * margin;
+      containerHeight += maxHeight;
+    }
+
+    item.style.cssText = `
+      position: absolute;
+      height: ${maxHeight}px;
+      left: ${left};
+      top: ${top}px;
+    `;
+  });
+
+  document.querySelectorAll('.tabs__content')[0].style.height = `${top + maxHeight + margin}px`;
+};
+
+const filter = category => {
+  const allItems = [...document.querySelectorAll('.tabs__content li')];
+
+  const visibleItems = allItems.filter(item => category === 'all' || item.dataset.category === category);
+  const hiddenItems = category !== 'all' ? allItems.filter(item => item.dataset.category !== category) : [];
+
+  const margin = 16; // equal 1rem
+  const rwdBreakpoint = 768;
+  const itemsInOneLine = window.innerWidth <= rwdBreakpoint ? 1 : 2;
+
+  hiddenItems.forEach(element => element.style.cssText = 'display: none');
+
+  setStylesForItems(visibleItems, margin, itemsInOneLine);
+};
+
+window.onload = function() {
+  filter('all');
+  const tabNavButtons = document.querySelectorAll('.tabs-nav__button');
 
   // click button in menu
   tabNavButtons.forEach(link => {
@@ -60,7 +105,7 @@ window.onload = function() {
       // toggle class in tab nav buttons
       if (!this.classList.contains('active')) {
         tabNavButtons.forEach(function(el) {
-          el.classList.remove('active')
+          el.classList.remove('active');
         });
         this.classList.add('active');
         filter(this.dataset.category);
@@ -71,47 +116,8 @@ window.onload = function() {
   });
 
   // resize window
-  window.onresize = function() {
+  window.onresize = debounce(function() {
     const activeCategory = document.querySelector('.tabs-nav__button.active').dataset.category;
-    filter( activeCategory ? '' : activeCategory);
-  };
-
-  function filter(category) {
-    category = category || 'all';
-    const itemsContainer = document.querySelectorAll('.tabs__content');
-    const allItems = [...document.querySelectorAll('.tabs__content li')];
-    const firstVisibleItem = allItems.find(element => !element.hidden);
-    const itemHeight = firstVisibleItem.clientHeight;
-    const itemWidth = firstVisibleItem.clientWidth;
-    const fiteredItems = allItems.filter(item => category === 'all' || item.dataset.category === category);
-    const fiteredItemsLength = fiteredItems.length;
-    const notFilteredItems = category !== 'all' ? allItems.filter(item => item.dataset.category !== category) : [];
-    const margin = 16;  // equal 1rem
-    const rwdBreakpoint = 768;
-    let itemsInOneLine = 2;
-
-    window.innerWidth <= rwdBreakpoint ? itemsInOneLine = 1 : false;
-  
-    //layout generation
-    itemsContainer[0].style.height = `${(itemHeight + 2*margin) * Math.round(fiteredItemsLength / itemsInOneLine)}px`;
-  
-    fiteredItems.forEach((element, key) => {
-      const left = !(key % itemsInOneLine) ? 0 : `${itemWidth + 2 * margin}px`;
-      const top = `${Math.floor(key / itemsInOneLine) * (itemHeight + 2 * margin)}px`;
-
-      element.style.cssText = `
-        display: block;
-        position: absolute;
-        left: ${left};
-        top: ${top};
-      `;
-
-      element.hidden = false;
-    });
-
-    notFilteredItems.forEach((element, key) => {
-      element.hidden = true;
-      element.style.cssText = 'display: none';
-    });
-  }
-}
+    filter(activeCategory);
+  }, 300);
+};
