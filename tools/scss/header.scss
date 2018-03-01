@@ -81,7 +81,12 @@
     .top-banner__arrow {
         background-color: transparent;
         border: none;
-    
+        transition: 0.66s ease-in-out;
+
+        &:hover {
+          transform: translateY(1rem);
+        }
+
         @media (max-width: $smallScreen) {
             display: none;
         }
