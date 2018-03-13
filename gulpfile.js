@@ -14,7 +14,7 @@ gulp.task('assets', function() {
   return gulp.src('./tools/assets/**/*').pipe(gulp.dest('./assets/'));
 });
 
-gulp.task('tinypng', function () {
+gulp.task('tinypng', function() {
   gulp.src('./tools/assets/img/**/*.{png,jpg,jpeg}')
     .pipe(gulp.dest('./tools/assets/img/'));
 });
@@ -36,7 +36,7 @@ gulp.task('scripts', function() {
     })
     .pipe(
       babel({
-        presets: ['es2015']
+        presets: ['es2015'],
       })
     )
     .pipe(browserify())
@@ -48,7 +48,7 @@ gulp.task('mustache', function() {
   gulp
     .src('tools/mustache/index.mustache')
     .pipe(mustache(data, { extension: '.html' }))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('sass', function() {
@@ -67,6 +67,8 @@ gulp.task('html', function() {
     .pipe(headerfooter.footer('./tools/partials/footer.html'))
     .pipe(gulp.dest('./'));
 });
+
+gulp.task('build', ['sass', 'mustache', 'scripts', 'scriptsLibs', 'assets']);
 
 gulp.task('serve', ['sass', 'mustache', 'scripts', 'scriptsLibs', 'assets'], function() {
   browserSync.init({
