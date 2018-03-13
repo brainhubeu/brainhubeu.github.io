@@ -5,6 +5,7 @@
 Open source projects developed by our team:
 
 - [react-permissible](https://github.com/brainhubeu/react-permissible) - Making the permission management for React components easier.
+- [react-carousel](https://github.com/brainhubeu/react-carousel) - React carousel is a feature-rich, react-way react component that does not suck.
 
 ## Teammates projects
 
@@ -12,7 +13,6 @@ You can check other open-source projects supported/developed by our teammates:
 
 - [mi18n](https://github.com/Lukasz-pluszczewski/mi18n) - MINTernationalization - i18n made easy
 - [redux-better-promise](https://github.com/Lukasz-pluszczewski/redux-better-promise) - Simple and powerful redux middleware that supports async side-effects
-- [debug-composer](https://github.com/Lukasz-pluszczewski/debug-composer) - Easy and clean wrapper for great debug utility
 - [chai-json-pattern](https://github.com/damian-brainhub/chai-json-pattern) - Deep matching objects with clear, JSON-like syntax.
 - [redux-phoenix](https://github.com/adam-golab/redux-phoenix) - Restore redux state from previous sessions like a phoenix from ashes.
 - [eslint-config-brainhub](https://github.com/adam-golab/eslint-config-brainhub) - ESLint shareable config for the Brainhub JavaScript style guide
