@@ -1,7 +1,23 @@
 const debounce = require('lodash.debounce');
+const axios = require('axios');
+
+function getBrainhubProjects() {
+    return axios.get('https://api.github.com/users/brainhubeu/repos')
+        .then(response =>
+            response.data.map(repo => ({
+                    category: 'bh',
+                    name: repo.name,
+                    href: repo.html_url,
+                    desc: repo.description,
+                })
+            )
+        )
+        .catch(function (error) {
+            console.log(error);
+        });
+}
 
 $(document).ready(function() {
-
   const screenSizes = {
     veryLargeScreen: '1600',
     largeScreen: '1440',
@@ -49,6 +65,20 @@ $(document).ready(function() {
     autoplay: true,
     autoplaySpeed: 3000,
   });
+
+    getBrainhubProjects()
+        .then(data => data.forEach(project => {
+            console.log(project);
+            return $(".tabs__content").prepend(`
+            <li class='tabs-content__item' data-category=${project.category}>
+                <a href=${project.href}>
+                <h3 class='tabs-content__header'>${project.name}</h3>
+            <p>${project.desc || ''}</p>
+            </a>
+            </li>
+`);
+        }))
+
 });
 
 const setStylesForItems = (visibleItems, margin, itemsInOneLine) => {
@@ -94,7 +124,6 @@ const filter = category => {
 
   setStylesForItems(visibleItems, margin, itemsInOneLine);
 };
-
 window.onload = function() {
   filter('all');
   const tabNavButtons = document.querySelectorAll('.tabs-nav__button');
@@ -132,3 +161,4 @@ window.onload = function() {
     filter(activeCategory);
   }, 300);
 };
+
