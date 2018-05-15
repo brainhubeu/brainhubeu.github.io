@@ -1,20 +1,16 @@
-import React, { PureComponent, StrictMode } from 'react';
-import Header from './Header';
-import Body from './Body';
+import React, { StrictMode } from 'react';
+import Header from './Header/Header';
+import Intro from './Intro';
 import Tabs from './Tabs';
 import Footer from './Footer/Footer';
 
-class Index extends PureComponent {
-    render() {
-        return (
-            <StrictMode>
-                <Header/>
-                <Body/>
-                <Tabs/>
-                <Footer/>
-            </StrictMode>
-        );
-    }
-}
+const Index = () => (
+  <StrictMode>
+    <Header/>
+    <Intro/>
+    <Tabs/>
+    <Footer/>
+  </StrictMode>
+);
 
 export default Index;

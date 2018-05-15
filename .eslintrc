@@ -1,0 +1,20 @@
+{
+  "root": true,
+  "extends": [
+    "brainhub"
+  ],
+  "env": {
+    "jest":true
+  },
+  "rules": {
+
+  },
+  "globals": {
+
+  },
+  "settings": {
+    "import/resolve": {
+      "moduleDirectory": ["node_modules", "src"]
+    }
+  }
+}

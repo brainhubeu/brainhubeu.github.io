@@ -11,6 +11,8 @@
   "devDependencies": {
     "@brainhubeu/react-carousel": "^1.2.1",
     "base-64": "^0.1.0",
+    "classnames": "^2.2.5",
+    "eslint-config-brainhub": "^1.8.0",
     "lodash.debounce": "^4.0.8",
     "mark-twain": "^2.0.3",
     "node-sass": "^4.9.0"
@@ -21,6 +23,8 @@
     "sass:watch": "node-sass -w src/styles/scss -o src/styles/css",
     "sass:build": "node-sass src/styles/scss -o src/styles/css --source-map true",
     "start": "yarn run sass:build && react-scripts start",
+    "lint": "eslint --ext .js src",
+    "lint:fix": "eslint --fix --ext .js src",
     "test": "react-scripts test --env=jsdom"
   }
 }
