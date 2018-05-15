@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "footer-slider.css",
+	"sources": [
+		"../scss/footer-slider.scss"
+	],
+	"names": [],
+	"mappings": ""
+}
