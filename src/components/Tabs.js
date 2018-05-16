@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import axios from 'axios';
 import base64 from 'base-64';
 import classnames from 'classnames';
-import markTwain from 'mark-twain';
 import parseJsonMLFactory from '../helpers/parseJsonMLFactory';
+import { Parser } from 'mark-to-jsonml';
 import debounce from 'lodash.debounce';
 
 class Tabs extends PureComponent {
@@ -106,8 +106,10 @@ class Tabs extends PureComponent {
   }
 
   render() {
-    const jsonML = markTwain(this.state.readme);
-    const teammatesProjects = parseJsonMLFactory({ username: 'brainhubeu' })(jsonML.content);
+    const parser = new Parser({ parseToc: true });
+    const parsed = this.state.readme && parser.parse(this.state.readme);
+
+    const teammatesProjects = parsed ? parseJsonMLFactory({ username: 'brainhubeu' })(parsed) : [];
 
     const projects = [...this.state.bhProjects, ...teammatesProjects];
     return (

@@ -14,7 +14,7 @@
     "classnames": "^2.2.5",
     "eslint-config-brainhub": "^1.8.0",
     "lodash.debounce": "^4.0.8",
-    "mark-twain": "^2.0.3",
+    "mark-to-jsonml": "^0.2.0",
     "node-sass": "^4.9.0"
   },
   "scripts": {
