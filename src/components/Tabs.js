@@ -40,18 +40,21 @@ class Tabs extends PureComponent {
 
     axios.get('https://api.github.com/repos/brainhubeu/brainhubeu.github.io/readme')
       .then(response => {
-        this.setState({
-          readme: base64.decode(response.data.content),
-        });
+          this.setState({
+            readme: base64.decode(response.data.content),
+          }, () => this.filter());
       })
       .catch(function(error) {
         console.log(error);
       });
 
     window.addEventListener('resize', this.filter);
-    this.filter();
-
     window.addEventListener('load', this.filter);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.filter);
+    window.removeEventListener('load', this.filter);
   }
 
   changeActiveCategory(e) {
