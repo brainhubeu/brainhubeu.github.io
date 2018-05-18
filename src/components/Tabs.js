@@ -15,6 +15,7 @@ class Tabs extends PureComponent {
       bhProjects: [],
       readme: null,
       activeCategory: 'all',
+      fetchError: false,
     };
 
     this.filter = debounce(this.filter.bind(this), 300);
@@ -34,19 +35,15 @@ class Tabs extends PureComponent {
           })),
         });
       })
-      .catch(function(error) {
-        console.log(error);
-      });
+      .catch(() => this.setState({ fetchError: true }));
 
     axios.get('https://api.github.com/repos/brainhubeu/brainhubeu.github.io/readme')
       .then(response => {
-          this.setState({
-            readme: base64.decode(response.data.content),
-          }, () => this.filter());
+        this.setState({
+          readme: base64.decode(response.data.content),
+        }, () => this.filter());
       })
-      .catch(function(error) {
-        console.log(error);
-      });
+      .catch(() => this.setState({ fetchError: true }));
 
     window.addEventListener('resize', this.filter);
     window.addEventListener('load', this.filter);
@@ -94,25 +91,27 @@ class Tabs extends PureComponent {
   }
 
   filter() {
-    const margin = 16; // equal 1rem
-    const rwdBreakpoint = 768;
-    const itemsInOneLine = window.innerWidth <= rwdBreakpoint ? 1 : 2;
+    if(!this.state.fetchError) {
+      const margin = 16; // equal 1rem
+      const rwdBreakpoint = 768;
+      const itemsInOneLine = window.innerWidth <= rwdBreakpoint ? 1 : 2;
 
-    const allItems = [...this.tabsContent.current.children];
+      const allItems = [...this.tabsContent.current.children];
 
-    const visibleItems = allItems.filter(item => this.state.activeCategory === 'all' || item.dataset.category === this.state.activeCategory);
-    const hiddenItems = this.state.activeCategory !== 'all' ? allItems.filter(item => item.dataset.category !== this.state.activeCategory) : [];
+      const visibleItems = allItems.filter(item => this.state.activeCategory === 'all' || item.dataset.category === this.state.activeCategory);
+      const hiddenItems = this.state.activeCategory !== 'all' ? allItems.filter(item => item.dataset.category !== this.state.activeCategory) : [];
 
-    hiddenItems.forEach(element => element.style.cssText = 'display: none');
+      hiddenItems.forEach(element => element.style.cssText = 'display: none');
 
-    this.setStylesForItems(visibleItems, margin, itemsInOneLine);
+      this.setStylesForItems(visibleItems, margin, itemsInOneLine);
+    }
   }
 
   render() {
     const parser = new Parser({ parseToc: true });
-    const parsed = this.state.readme && parser.parse(this.state.readme);
+    const parsedData = this.state.readme && parser.parse(this.state.readme);
 
-    const teammatesProjects = parsed ? parseJsonMLFactory({ username: 'brainhubeu' })(parsed) : [];
+    const teammatesProjects = parsedData ? parseJsonMLFactory({ username: 'brainhubeu' })(parsedData) : [];
 
     const projects = [...this.state.bhProjects, ...teammatesProjects];
     return (
@@ -147,23 +146,26 @@ class Tabs extends PureComponent {
           </li>
         </ul>
         <div className="tabs-content__bg">
-          <ul
-            className="tabs__content container"
-            ref={this.tabsContent}
-          >
-            {projects.map(project =>
-              <li
-                key={project.href}
-                className="tabs-content__item"
-                data-category={project.category}
-              >
-                <a href={project.href}>
-                  <h3 className="tabs-content__header">{project.name}</h3>
-                  <p>{project.desc}</p>
-                </a>
-              </li>
-            )}
-          </ul>
+          {this.state.fetchError
+            ? <p className="tabs-error">An error occurred while fetching data from the github</p>
+            : <ul
+              className="tabs__content container"
+              ref={this.tabsContent}
+            >
+              {this.state.readme && this.state.bhProjects && projects.map(project =>
+                <li
+                  key={project.href}
+                  className="tabs-content__item"
+                  data-category={project.category}
+                >
+                  <a href={project.href}>
+                    <h3 className="tabs-content__header">{project.name}</h3>
+                    <p>{project.desc}</p>
+                  </a>
+                </li>
+              )}
+            </ul>
+          }
         </div>
       </section>
     );

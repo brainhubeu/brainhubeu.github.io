@@ -2,7 +2,7 @@
 
 .contact-us__banner-bg {
   font-weight: bold;
-  background-image: radial-gradient(circle,#886aff 0%,#6949e3 100%);
+  background-image: radial-gradient(circle,$contactGradient1 0%,$contactGradient2 100%);
 }
 
 .contact-us__container {
@@ -63,11 +63,10 @@
     }
 
     &:before {
-      border-bottom: solid;
-      border-bottom-width: 1px;
       width: 0.625rem;
       right: 0.25rem;
       border-color: $secondaryBtnHover;
+      border-bottom: 1px solid;
     }
 
     &:after {
@@ -250,4 +249,5 @@
   padding-top: 1rem;
   margin: 0;
   white-space: nowrap;
+  text-transform: uppercase;
 }

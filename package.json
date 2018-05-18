@@ -1,24 +1,33 @@
 {
   "name": "brainhubeu.github.io",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Static site with open source packages created by Brainhub team",
+  "license": "MIT",
+  "homepage": "https://brainhubeu.github.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brainhubeu/brainhubeu.github.io.git"
+  },
   "dependencies": {
-    "axios": "^0.18.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4"
   },
   "devDependencies": {
+    "axios": "^0.18.0",
     "@brainhubeu/react-carousel": "^1.2.1",
     "base-64": "^0.1.0",
     "classnames": "^2.2.5",
     "eslint-config-brainhub": "^1.8.0",
+    "gh-pages": "^1.1.0",
     "lodash.debounce": "^4.0.8",
     "mark-to-jsonml": "^0.2.0",
     "node-sass": "^4.9.0"
   },
   "scripts": {
-    "build": "yarn sass:build && react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
+    "build": "yarn sass:build && react-scripts build && rsync -a -v build/* .",
     "eject": "react-scripts eject",
     "sass:watch": "node-sass -w src/styles/scss -o src/styles/css",
     "sass:build": "node-sass src/styles/scss -o src/styles/css --source-map true",

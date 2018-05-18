@@ -47,12 +47,11 @@
 
 .tabs-nav__button {
   border: none;
-  padding: 0;
   margin-right: 3.75rem;
   color: #150940;
   opacity: 0.3;
   font-weight: bold;
-  padding-bottom: 1.75rem;
+  padding: 0 0 1.75rem;
   border-bottom: 2px solid transparent;
   text-decoration: none;
   font-size: 1rem;
@@ -62,6 +61,14 @@
   .tabs-nav__button.active {
     opacity: 1;
     border-bottom-color: #150940; }
+
+.tabs-error {
+  text-align: center;
+  padding: 6rem 2rem;
+  margin: 0;
+  color: #7b59ff;
+  font-size: 2rem;
+  font-weight: bold; }
 
 .tabs__content {
   list-style: none;

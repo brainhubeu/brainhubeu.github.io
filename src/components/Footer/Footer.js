@@ -9,10 +9,12 @@ const Footer = () => (
     <div className="slider">
       <Carousel
         infinite
+        centered
         itemWidth={198}
+        autoPlay={3000}
       >
         {footerData.slider.map(slide => (
-          <img style={{ width: `${198 }px` }} key={slide.src} src={slide.src} alt={slide.alt}/>
+          <img style={{ width: `${198}px` }} key={slide.src} src={slide.src} alt={slide.alt}/>
         ))}
       </Carousel>
     </div>

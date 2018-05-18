@@ -47,11 +47,10 @@
       transform: translateY(-50%);
       transition: 1s; }
     .contact-us__btn span:before {
-      border-bottom: solid;
-      border-bottom-width: 1px;
       width: 0.625rem;
       right: 0.25rem;
-      border-color: #322e46; }
+      border-color: #322e46;
+      border-bottom: 1px solid; }
     .contact-us__btn span:after {
       border-color: transparent #322e46;
       border-width: 0.25rem 0 0.25rem 0.25rem;
@@ -188,6 +187,7 @@
   font-size: 0.7rem;
   padding-top: 1rem;
   margin: 0;
-  white-space: nowrap; }
+  white-space: nowrap;
+  text-transform: uppercase; }
 
 /*# sourceMappingURL=footer.css.map */

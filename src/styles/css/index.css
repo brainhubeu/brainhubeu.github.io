@@ -65,9 +65,7 @@ button {
   color: #fff;
   font-size: 0.9rem;
   line-height: 1rem;
-  padding: 0.75rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding: 0.75rem 1.5rem;
   transition: 1s; }
   @media (max-width: 768px) {
     .menu__contact-btn {
@@ -174,12 +172,11 @@ html {
 
 .tabs-nav__button {
   border: none;
-  padding: 0;
   margin-right: 3.75rem;
   color: #150940;
   opacity: 0.3;
   font-weight: bold;
-  padding-bottom: 1.75rem;
+  padding: 0 0 1.75rem;
   border-bottom: 2px solid transparent;
   text-decoration: none;
   font-size: 1rem;
@@ -189,6 +186,14 @@ html {
   .tabs-nav__button.active {
     opacity: 1;
     border-bottom-color: #150940; }
+
+.tabs-error {
+  text-align: center;
+  padding: 6rem 2rem;
+  margin: 0;
+  color: #7b59ff;
+  font-size: 2rem;
+  font-weight: bold; }
 
 .tabs__content {
   list-style: none;
@@ -333,11 +338,10 @@ html {
       transform: translateY(-50%);
       transition: 1s; }
     .contact-us__btn span:before {
-      border-bottom: solid;
-      border-bottom-width: 1px;
       width: 0.625rem;
       right: 0.25rem;
-      border-color: #322e46; }
+      border-color: #322e46;
+      border-bottom: 1px solid; }
     .contact-us__btn span:after {
       border-color: transparent #322e46;
       border-width: 0.25rem 0 0.25rem 0.25rem;
@@ -474,6 +478,7 @@ html {
   font-size: 0.7rem;
   padding-top: 1rem;
   margin: 0;
-  white-space: nowrap; }
+  white-space: nowrap;
+  text-transform: uppercase; }
 
 /*# sourceMappingURL=index.css.map */
