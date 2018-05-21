@@ -20,7 +20,6 @@ function parseJsonMLFactory(config) {
       projects.push(...result);
       return result;
     } else {
-      console.log(projects);
       return Object.assign(
         result,
         ...(rest.map(element => Array.isArray(element) ? parseJsonML(element, Array.from([...new Set(projects)])) : {}))
