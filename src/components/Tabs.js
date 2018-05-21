@@ -91,7 +91,7 @@ class Tabs extends PureComponent {
   }
 
   filter() {
-    if(!this.state.fetchError) {
+    if (!this.state.fetchError) {
       const margin = 16; // equal 1rem
       const rwdBreakpoint = 768;
       const itemsInOneLine = window.innerWidth <= rwdBreakpoint ? 1 : 2;
@@ -148,23 +148,25 @@ class Tabs extends PureComponent {
         <div className="tabs-content__bg">
           {this.state.fetchError
             ? <p className="tabs-error">An error occurred while fetching data from the github</p>
-            : <ul
-              className="tabs__content container"
-              ref={this.tabsContent}
-            >
-              {this.state.readme && this.state.bhProjects && projects.map(project =>
-                <li
-                  key={project.href}
-                  className="tabs-content__item"
-                  data-category={project.category}
-                >
-                  <a href={project.href}>
-                    <h3 className="tabs-content__header">{project.name}</h3>
-                    <p>{project.desc}</p>
-                  </a>
-                </li>
-              )}
-            </ul>
+            : (
+              <ul
+                className="tabs__content container"
+                ref={this.tabsContent}
+              >
+                {this.state.readme && this.state.bhProjects && projects.map(project =>
+                  <li
+                    key={project.href}
+                    className="tabs-content__item"
+                    data-category={project.category}
+                  >
+                    <a href={project.href}>
+                      <h3 className="tabs-content__header">{project.name}</h3>
+                      <p>{project.desc}</p>
+                    </a>
+                  </li>
+                )}
+              </ul>
+            )
           }
         </div>
       </section>
