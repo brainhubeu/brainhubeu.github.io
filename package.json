@@ -27,7 +27,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d build",
-    "build": "yarn sass:build && react-scripts build && rsync -a -v build/* .",
+    "build": "yarn sass:build && react-scripts build",
     "eject": "react-scripts eject",
     "sass:watch": "node-sass -w src/styles/scss -o src/styles/css",
     "sass:build": "node-sass src/styles/scss -o src/styles/css --source-map true",
