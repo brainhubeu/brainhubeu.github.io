@@ -19,6 +19,7 @@ You can check other open-source projects supported/developed by our teammates:
 - [random-weighted-item](https://github.com/oprogramador/random-weighted-item) - Generator of random item in array by probability function
 - [grapedb](https://github.com/oprogramador/grapedb) - Distributed object database
 - [json-schema-faker-cli](https://github.com/oprogramador/json-schema-faker-cli) - CLI for json-schema-faker.
+- [monitoring-rabcher](https://github.com/szczepanbh/monitoring-rancher) - Rancher server monitoring with TIG Stack.
 
 
 ## About
