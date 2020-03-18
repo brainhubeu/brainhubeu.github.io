@@ -10,6 +10,7 @@ trap 'failure ${LINENO}' ERR
 remote=https://$GIT_TOKEN@github.com/brainhubeu/brainhubeu.github.io.git
 
 yarn install --non-interactive
+sed -i "s/%page_built_at%/$(date)/g" public/index.html
 yarn build
 
 mkdir -p gh-pages-branch
