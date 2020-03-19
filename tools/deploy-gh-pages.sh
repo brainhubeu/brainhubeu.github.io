@@ -28,12 +28,12 @@ then
   echo 'rev-parse true'
   git checkout master
   git rm -rf . || echo 'nothing to remove'
-  cp -r ../public/* .
+  cp -r ../build/* .
 else
   echo 'rev-parse false'
   git checkout --orphan master
   git rm -rf . || echo 'nothing to remove'
-  cp -r ../public/* .
+  cp -r ../build/* .
 fi
 
 git add -A
