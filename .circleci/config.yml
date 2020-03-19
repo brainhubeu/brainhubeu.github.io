@@ -84,8 +84,10 @@ jobs:
           fingerprints:
             - "2f:e4:2a:59:2b:13:94:79:3a:94:16:76:2e:0f:21:3b"
       - run:
-          name: publish gh pages
-          command: ./tools/deploy-gh-pages.sh
+          name: deploy
+          command: |
+            sed -i "s/%page_built_at%/$(date)/g" public/index.html
+            npm run deploy
 workflows:
   version: 2
   build_and_test:
@@ -105,7 +107,3 @@ workflows:
             - test
             - lint
             - compile
-          filters:
-            branches:
-              only:
-                - master
