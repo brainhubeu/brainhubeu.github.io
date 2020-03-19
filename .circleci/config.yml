@@ -87,6 +87,8 @@ jobs:
           name: deploy
           command: |
             sed -i "s/%page_built_at%/$(date)/g" public/index.html
+            git config --global user.email "devops@brainhub.eu" > /dev/null 2>&1
+            git config --global user.name "DevOps Brainhub" > /dev/null 2>&1
             npm run deploy
 workflows:
   version: 2
