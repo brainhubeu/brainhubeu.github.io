@@ -84,7 +84,7 @@ jobs:
           fingerprints:
             - "2f:e4:2a:59:2b:13:94:79:3a:94:16:76:2e:0f:21:3b"
       - run:
-          name: deploy
+          name: Deploy
           command: |
             sed -i "s/%page_built_at%/$(date)/g" public/index.html
             git config --global user.email "devops@brainhub.eu" > /dev/null 2>&1
