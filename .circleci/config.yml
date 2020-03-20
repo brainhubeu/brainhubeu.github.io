@@ -109,3 +109,6 @@ workflows:
             - test
             - lint
             - compile
+          filters:
+            branches:
+              only: development
