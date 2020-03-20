@@ -85,7 +85,11 @@ jobs:
             - "2f:e4:2a:59:2b:13:94:79:3a:94:16:76:2e:0f:21:3b"
       - run:
           name: Deploy
-          command: npm run deploy
+          command: |
+            sed -i "s/%page_built_at%/$(date)/g" public/index.html
+            git config --global user.email "devops@brainhub.eu" > /dev/null 2>&1
+            git config --global user.name "DevOps Brainhub" > /dev/null 2>&1
+            npm run deploy
 workflows:
   version: 2
   build_and_test:
@@ -102,7 +106,9 @@ workflows:
             - build
       - deploy:
           requires:
-            - build
+            - test
+            - lint
+            - compile
           filters:
             branches:
               only: development
