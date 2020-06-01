@@ -1,4 +1,5 @@
 import React from 'react';
+
 import FooterData from './footerData';
 import Contact from './Contact';
 import Facebook from './icons/Facebook';

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import footerData from './footerData';
 
 const Contact = () => (
