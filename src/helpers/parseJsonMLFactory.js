@@ -22,7 +22,9 @@ function parseJsonMLFactory(config) {
     } else {
       return Object.assign(
         result,
-        ...(rest.map(element => Array.isArray(element) ? parseJsonML(element, Array.from([...new Set(projects)])) : {})),
+        ...(rest.map(
+          element => Array.isArray(element) ? parseJsonML(element, Array.from([...new Set(projects)])) : {},
+        )),
       );
     }
   };
