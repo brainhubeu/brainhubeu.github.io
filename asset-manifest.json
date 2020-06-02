@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/static/css/main.91fb73ff.chunk.css",
-    "main.js": "/static/js/main.e0875d22.chunk.js",
-    "main.js.map": "/static/js/main.e0875d22.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.6b90cebd.js",
-    "runtime-main.js.map": "/static/js/runtime-main.6b90cebd.js.map",
-    "static/css/2.20233429.chunk.css": "/static/css/2.20233429.chunk.css",
-    "static/js/2.f3824e5b.chunk.js": "/static/js/2.f3824e5b.chunk.js",
-    "static/js/2.f3824e5b.chunk.js.map": "/static/js/2.f3824e5b.chunk.js.map",
+    "main.js": "/static/js/main.d5800e24.chunk.js",
+    "main.js.map": "/static/js/main.d5800e24.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c7436af4.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c7436af4.js.map",
+    "static/css/2.accba2c8.chunk.css": "/static/css/2.accba2c8.chunk.css",
+    "static/js/2.8421cf3e.chunk.js": "/static/js/2.8421cf3e.chunk.js",
+    "static/js/2.8421cf3e.chunk.js.map": "/static/js/2.8421cf3e.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.39a2b4d6820deb1992e9aea2cd0aa16e.js": "/precache-manifest.39a2b4d6820deb1992e9aea2cd0aa16e.js",
+    "precache-manifest.08df2605878b4b8ce197f9cdef14abb0.js": "/precache-manifest.08df2605878b4b8ce197f9cdef14abb0.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/2.20233429.chunk.css.map": "/static/css/2.20233429.chunk.css.map",
+    "static/css/2.accba2c8.chunk.css.map": "/static/css/2.accba2c8.chunk.css.map",
     "static/css/main.91fb73ff.chunk.css.map": "/static/css/main.91fb73ff.chunk.css.map",
-    "static/js/2.f3824e5b.chunk.js.LICENSE.txt": "/static/js/2.f3824e5b.chunk.js.LICENSE.txt",
+    "static/js/2.8421cf3e.chunk.js.LICENSE.txt": "/static/js/2.8421cf3e.chunk.js.LICENSE.txt",
     "static/media/carousel-image-2.jpg": "/static/media/carousel-image-2.0153fe2f.jpg",
     "static/media/carousel-image-3.jpg": "/static/media/carousel-image-3.393b99fc.jpg",
     "static/media/carousel-image-4.jpg": "/static/media/carousel-image-4.7c8baca7.jpg",
@@ -24,10 +24,10 @@
     "static/media/index.css": "/static/media/hkgrotesk-regular.ed7e5e83.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.6b90cebd.js",
-    "static/css/2.20233429.chunk.css",
-    "static/js/2.f3824e5b.chunk.js",
+    "static/js/runtime-main.c7436af4.js",
+    "static/css/2.accba2c8.chunk.css",
+    "static/js/2.8421cf3e.chunk.js",
     "static/css/main.91fb73ff.chunk.css",
-    "static/js/main.e0875d22.chunk.js"
+    "static/js/main.d5800e24.chunk.js"
   ]
 }
