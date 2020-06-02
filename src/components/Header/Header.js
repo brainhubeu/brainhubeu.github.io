@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+
 import BrainhubLogo from './BrainhubLogo';
 import ArrowDown from './ArrowDown';
 

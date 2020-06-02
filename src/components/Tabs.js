@@ -2,9 +2,10 @@ import React, { PureComponent } from 'react';
 import axios from 'axios';
 import base64 from 'base-64';
 import classnames from 'classnames';
-import parseJsonMLFactory from '../helpers/parseJsonMLFactory';
 import { Parser } from 'mark-to-jsonml';
 import debounce from 'lodash.debounce';
+
+import parseJsonMLFactory from '../helpers/parseJsonMLFactory';
 
 class Tabs extends PureComponent {
   constructor(props) {
@@ -163,7 +164,7 @@ class Tabs extends PureComponent {
                       <h3 className="tabs-content__header">{project.name}</h3>
                       <p>{project.desc}</p>
                     </a>
-                  </li>
+                  </li>,
                 )}
               </ul>
             )
