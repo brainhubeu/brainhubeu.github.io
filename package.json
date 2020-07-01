@@ -1,6 +1,6 @@
 {
   "name": "brainhubeu.github.io",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Static site with open source packages created by Brainhub team",
   "license": "MIT",
   "homepage": "https://brainhubeu.github.io",
@@ -11,7 +11,7 @@
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-ga": "^2.7.0",
+    "react-ga": "^3.0.0",
     "react-scripts": "^3.4.1"
   },
   "devDependencies": {
