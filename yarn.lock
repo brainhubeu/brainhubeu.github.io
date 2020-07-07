@@ -1006,10 +1006,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@brainhubeu/react-carousel@^1.19.9":
-  version "1.19.9"
-  resolved "https://registry.yarnpkg.com/@brainhubeu/react-carousel/-/react-carousel-1.19.9.tgz#ed4fed58f41855816f88e89896f1daae80ac4e5f"
-  integrity sha512-44teKtGKFjc5kaNDltHLqdO/rkKGz8t17vyI0fLSOgUh80pd5Lv91GqpUorjqQfFkpFrSRtSfaofbkiYsMFsOA==
+"@brainhubeu/react-carousel@^1.19.14":
+  version "1.19.14"
+  resolved "https://registry.yarnpkg.com/@brainhubeu/react-carousel/-/react-carousel-1.19.14.tgz#ba8bc189b090f557174e828fa5095e09209bd026"
+  integrity sha512-McmYXOUw7BkzYgg2bUh+zC35Wt5cgmDbvQ4kuWU8K396Z2DkdlKmJMumkJtTlflpKsfz9sgF8KEht2T3rymHUw==
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
@@ -8857,10 +8857,10 @@ react-error-overlay@^6.0.7:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
   integrity sha512-TAv1KJFh3RhqxNvhzxj6LeT5NWklP6rDr2a0jaTfsZ5wSZWHOGeqQyejUp3xxLfPt2UpyJEcVQB/zyPcmonNFA==
 
-react-ga@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-3.0.0.tgz#4d665389cf0c489c36c5fdf97722a7e53efdfc5b"
-  integrity sha512-IKqqCtSMe0IfSRNvbHAiwXwIXbuza4VvHvB/2N3hEiMFGSjv8fNI6obPH6bkDdIjDpwzbUqKs8895OxBckWJ2g==
+react-ga@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-3.1.2.tgz#e13f211c51a2e5c401ea69cf094b9501fe3c51ce"
+  integrity sha512-OJrMqaHEHbodm+XsnjA6ISBEHTwvpFrxco65mctzl/v3CASMSLSyUkFqz9yYrPDKGBUfNQzKCjuMJwctjlWBbw==
 
 react-is@^16.8.1:
   version "16.13.0"
