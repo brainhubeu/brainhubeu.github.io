@@ -1,6 +1,6 @@
 {
   "name": "brainhubeu.github.io",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Static site with open source packages created by Brainhub team",
   "license": "MIT",
   "homepage": "https://brainhubeu.github.io",
@@ -11,11 +11,11 @@
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-ga": "^3.0.0",
+    "react-ga": "^3.1.2",
     "react-scripts": "^3.4.1"
   },
   "devDependencies": {
-    "@brainhubeu/react-carousel": "^1.19.9",
+    "@brainhubeu/react-carousel": "^1.19.14",
     "axios": "^0.19.2",
     "base-64": "^0.1.0",
     "classnames": "^2.2.6",
