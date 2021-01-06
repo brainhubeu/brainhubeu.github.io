@@ -1,6 +1,6 @@
 {
   "name": "brainhubeu.github.io",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Static site with open source packages created by Brainhub team",
   "license": "MIT",
   "homepage": "https://brainhubeu.github.io",
@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@brainhubeu/react-carousel": "^1.19.14",
-    "axios": "^0.19.2",
+    "axios": "^0.21.0",
     "base-64": "^0.1.0",
     "classnames": "^2.2.6",
     "eslint-config-brainhub": "1.13.0",
